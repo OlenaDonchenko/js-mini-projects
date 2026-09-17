@@ -110,21 +110,4 @@ function getWinner(user, computer) {
     }
     return "computer";
 }
-playButton.addEventListener("click", function () {
-    
-    if (userChoice === null) {
-        alert("Please choose Rock, Paper, or Scissors!");
-        return;
-    }
-    const computerChoice = getComputerChoice();
-    const winner = getWinner(userChoice, computerChoice);
-    if (winner === "draw") {
-    result.textContent = `Draw! You both chose ${userChoice}.`;
-} else if (winner === "user") {
-    result.textContent = `You win! You chose ${userChoice}, computer chose ${computerChoice}.`;
-} else {
-    result.textContent = `Computer wins! You chose ${userChoice}, computer chose ${computerChoice}.`;
-    }
-    userScore.textContent = userPoints;
-    computerScore.textContent = computerPoints;
-});
+
