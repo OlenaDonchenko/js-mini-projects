@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Rock Paper Scissors</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="min-h-screen bg-[#120A1F] text-white flex items-center justify-center p-6">
+    <div class="w-full max-w-2xl">
+        <div class="bg-gradient-to-br from-[#24103D] via-[#321052] to-[#1B0B2E] rounded-3xl p-8 md:p-10 shadow-2xl border border-pink-500/30">
+
+            <div class="text-center mb-8">
+                <p class="text-pink-400 uppercase tracking-[0.3em] text-sm font-semibold mb-3">
+                    Mini Game </p>
+
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+                    Rock
+                    <span class="text-pink-400">Paper</span>
+                    Scissors
+                </h1>
+
+                <p class="text-purple-200 mt-3">
+                    Choose your move and beat the computer. </p>
+            </div>
+
+            <div class="bg-[#160B27]/70 backdrop-blur-md rounded-2xl p-6 border border-pink-500/20 mb-8">
+                <p class="text-center text-purple-300 uppercase tracking-widest text-xs mb-5">
+                    Current Score </p>
+
+                <div class="flex justify-center items-center gap-12">
+                    <div class="text-center">
+                        <p class="text-purple-300 text-sm mb-1">
+                            You </p>
+
+                        <span
+                            id="user-score"
+                            class="text-5xl font-bold text-pink-100">
+                            0 </span>
+                    </div>
+
+                    <div class="text-2xl text-purple-400 font-semibold">
+                        :
+                    </div>
+
+                    <div class="text-center">
+                        <p class="text-purple-300 text-sm mb-1">
+                            Computer </p>
+
+                        <span
+                            id="computer-score"
+                            class="text-5xl font-bold text-pink-100">
+                            0 </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+
+                <h2 class="text-center text-xl font-semibold mb-5">
+                    Choose your move </h2>
+
+                <div
+                    id="selection"
+                    class="grid grid-cols-3 gap-4">
+
+                    <button id="rock" class="group bg-[#211034] border-2 border-pink-500/70 text-white rounded-2xl py-5 px-4 transition-all duration-300 hover:bg-pink-500 hover:border-pink-300 hover:shadow-[0_0_25px_rgba(255,60,172,0.5)] hover:-translate-y-1">
+
+                        <img
+                            src="img/photo1.jpg"
+                            alt="Rock"
+                            class="w-16 h-16 mx-auto mb-2 object-contain rounded-xl">
+
+                        <span class="font-semibold">
+                            Rock </span>
+                    </button>
+
+                    <button id="paper" class="group bg-[#211034] border-2 border-pink-500/70 text-white rounded-2xl py-5 px-4 transition-all duration-300 hover:bg-pink-500 hover:border-pink-300 hover:shadow-[0_0_25px_rgba(255,60,172,0.5)] hover:-translate-y-1">
+
+                        <img
+                            src="img/photo2.jpg"
+                            alt="Paper"
+                            class="w-16 h-16 mx-auto mb-2 object-contain rounded-xl">
+
+                        <span class="font-semibold">
+                            Paper </span>
+                    </button>
+
+                    <button id="scissors" class="group bg-[#211034] border-2 border-pink-500/70 text-white rounded-2xl py-5 px-4 transition-all duration-300 hover:bg-pink-500 hover:border-pink-300 hover:shadow-[0_0_25px_rgba(255,60,172,0.5)] hover:-translate-y-1">
+
+                        <img
+                            src="img/photo_3.jpg"
+                            alt="Scissors"
+                            class="w-16 h-16 mx-auto mb-2 object-contain rounded-xl">
+
+                        <span class="font-semibold">
+                            Scissors </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-lg font-semibold mb-3">
+                    Result </h2>
+                <div
+                    id="result"
+                    class="bg-[#120A1F]/80 border border-pink-500/20 rounded-2xl px-5 py-6 text-center text-purple-200 min-h-[80px] flex items-center justify-center">
+                    No result yet
+                </div>
+            </div>
+
+            <button id="play-button" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg py-4 rounded-2xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(255,60,172,0.6)] hover:-translate-y-1 active:scale-[0.98]">               
+                Play Round </button>
+            <div class="mt-10 pt-8 border-t border-pink-500/20">
+
+                <div class="text-center mb-6">
+                    <p class="text-pink-400 uppercase tracking-[0.3em] text-sm font-semibold mb-3">
+                        Text Tool</p>
+
+                    <h2 class="text-3xl md:text-4xl font-bold">
+                        Pig <span class="text-pink-400">Latin</span>
+                    </h2>
+
+                    <p class="text-purple-200 mt-3">
+                        Translate your text into Pig Latin. </p>
+                    <div class="mt-6">
+                        <input
+                            id="pig-input"
+                            type="text"
+                            placeholder="Enter an English phrase..."
+                            class="w-full bg-[#120A1F]/80 border border-pink-500/30 rounded-xl px-4 py-3 text-white placeholder-purple-400 focus:outline-none focus:border-pink-400">
+
+                        <button
+                            id="pig-button"
+                            class="w-full mt-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,60,172,0.5)] hover:-translate-y-1">
+                            Translate </button>
+
+                        <div
+                            id="pig-result"
+                            class="mt-4 bg-[#120A1F]/80 border border-pink-500/20 rounded-xl px-5 py-4 text-center text-purple-200 min-h-[60px] flex items-center justify-center">
+                            Translation will appear here </div>
+                        <span class="text-sm text-purple-400 mt-2">
+                            This tool runs in the terminal.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-pink-500/20">
+                <div class="text-center mb-6">
+                    <p class="text-pink-400 uppercase tracking-[0.3em] text-sm font-semibold mb-3">
+                        Text Tool </p>
+
+                    <h2 class="text-3xl md:text-4xl font-bold">
+                        Caesar <span class="text-pink-400">Cipher</span>
+                    </h2>
+
+                    <p class="text-purple-200 mt-3">
+                        Encrypt text using a Caesar cipher. </p>
+                </div>
+
+                <div class="bg-[#160B27]/70 backdrop-blur-md rounded-2xl p-6 border border-pink-500/20">
+                    <label
+                        for="caesar-input"
+                        class="block text-purple-300 text-sm mb-2">
+                        Enter your text </label>
+
+                    <input
+                        id="caesar-input"
+                        type="text"
+                        placeholder="Type your text here..."
+                        class="w-full bg-[#120A1F] border border-pink-500/30 rounded-xl px-4 py-3 text-white placeholder-purple-400 outline-none focus:border-pink-400">
+
+                    <label
+                        for="caesar-shift"
+                        class="block text-purple-300 text-sm mt-4 mb-2">
+                        Shift </label>
+
+                    <input
+                        id="caesar-shift"
+                        type="number"
+                        value="3"
+                        placeholder="Enter shift"
+                        class="w-full bg-[#120A1F] border border-pink-500/30 rounded-xl px-4 py-3 text-white placeholder-purple-400 outline-none focus:border-pink-400">
+
+                    <button id="caesar-button"
+                        class="w-full mt-5 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,60,172,0.5)] hover:-translate-y-1 active:scale-[0.98]">
+                        Encrypt Text </button>
+
+                    <div
+                        id="caesar-result"
+                        class="mt-4 bg-[#120A1F]/80 border border-pink-500/20 rounded-xl px-5 py-4 text-center text-purple-200 min-h-[60px] flex items-center justify-center flex-col">
+                <span>Encrypted text will appear here</span>
+                <span class="text-sm text-purple-400 mt-2">
+                    This tool runs in the terminal.</span>
+            </div>
+        </div>
+            <p class="text-center text-purple-400 text-xs mt-6">
+                Built with HTML · Tailwind CSS · JavaScript </p>
+    </div>
+
+    <script src="Rock.js"></script>
+</body>
+</html>
